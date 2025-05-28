@@ -144,6 +144,7 @@ void updateGame() {
 
   if (snake.x == point.x && snake.y == point.y) {
     onPointEaten();
+    updateLed();
     return;
   }
 

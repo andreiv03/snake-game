@@ -19,13 +19,22 @@ void updateLed() {
 
   switch (currentEffect) {
   case FLASH_GREEN:
-    if (now - lastLedUpdate > FLASH_GREEN_DURATION) {
+    int32_t elapsed = now - lastLedUpdate;
+    int32_t brightness = 0;
+
+    if (elapsed >= FLASH_GREEN_DURATION) {
       setLed(0, 0, 0);
       currentEffect = NONE;
-    } else {
-      setLed(0, 255, 0);
+      return;
     }
 
+    if (elapsed < FLASH_GREEN_DURATION / 2) {
+      brightness = map(elapsed, 0, 500, 0, 255);
+    } else {
+      brightness = map(elapsed, 500, 1000, 255, 0);
+    }
+
+    setLed(0, brightness, 0);
     break;
 
   case NONE:
