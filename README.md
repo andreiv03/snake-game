@@ -32,7 +32,7 @@ Before building the project, ensure you have the following installed:
 
 ### Build Instructions
 
-Follow these steps to clone, build, and run the HTTP client:
+Follow these steps to clone, build, and run the Snake Game:
 
 ```sh
 # Clone the repository
